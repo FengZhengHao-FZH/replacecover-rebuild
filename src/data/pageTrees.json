@@ -1,0 +1,845 @@
+{
+  "about": {
+    "type": "div",
+    "props": {
+      "className": "p-about"
+    },
+    "children": [
+      {
+        "type": "div",
+        "props": {
+          "className": "s-about"
+        },
+        "children": [
+          {
+            "type": "div",
+            "props": {
+              "className": "c-about-intro"
+            },
+            "children": [
+              {
+                "type": "a",
+                "props": {
+                  "href": "/"
+                },
+                "children": [
+                  {
+                    "type": "span",
+                    "props": {
+                      "role": "img",
+                      "aria-label": "back"
+                    },
+                    "children": [
+                      "👈"
+                    ]
+                  },
+                  " go back"
+                ]
+              },
+              {
+                "type": "h1",
+                "props": {},
+                "children": [
+                  " Automatically generated playlist covers are boring. "
+                ]
+              },
+              {
+                "type": "p",
+                "props": {},
+                "children": [
+                  "I’m Radu, a product designer and co-founder of this ",
+                  {
+                    "type": "a",
+                    "props": {
+                      "href": "http://perfect10.io",
+                      "title": "Perfect 10 Studio"
+                    },
+                    "children": [
+                      "digital product studio"
+                    ]
+                  },
+                  " and this ",
+                  {
+                    "type": "a",
+                    "props": {
+                      "href": "https://specstimate.com",
+                      "title": "Specstimate - Estimate Better Together"
+                    },
+                    "children": [
+                      "SaaS product for digital agencies"
+                    ]
+                  },
+                  ". Oh and I’m addicted to Spotify."
+                ]
+              },
+              {
+                "type": "p",
+                "props": {},
+                "children": [
+                  "If you like this thing, share it with your friends. Or keep it a secret. Maybe tweet about it and use ",
+                  {
+                    "type": "em",
+                    "props": {},
+                    "children": [
+                      "#replacecover"
+                    ]
+                  },
+                  "? Why not listen to ",
+                  {
+                    "type": "a",
+                    "props": {
+                      "href": "https://open.spotify.com/user/raduceuca",
+                      "title": "Radu on Spotify",
+                      "target": "_blank",
+                      "rel": "noopener noreferrer"
+                    },
+                    "children": [
+                      "my playlists on Spotify"
+                    ]
+                  },
+                  "? I dunno. You do you."
+                ]
+              },
+              {
+                "type": "p",
+                "props": {},
+                "children": [
+                  {
+                    "type": "span",
+                    "props": {
+                      "role": "img",
+                      "aria-label": "hello"
+                    },
+                    "children": [
+                      "👋"
+                    ]
+                  },
+                  " ",
+                  {
+                    "type": "a",
+                    "props": {
+                      "href": "https://twitter.com/raduceuca",
+                      "title": "Radu's on the twitterz"
+                    },
+                    "children": [
+                      "@raduceuca"
+                    ]
+                  },
+                  " on The Twitter.",
+                  {
+                    "type": "br",
+                    "props": {},
+                    "children": []
+                  },
+                  {
+                    "type": "span",
+                    "props": {
+                      "role": "img",
+                      "aria-label": "email"
+                    },
+                    "children": [
+                      "💌"
+                    ]
+                  },
+                  " ",
+                  {
+                    "type": "a",
+                    "props": {
+                      "href": "mailto:raduceuca@gmail.com?subject=Replace Cover Ideas",
+                      "title": "Email Radu"
+                    },
+                    "children": [
+                      "raduceuca@gmail.com"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "p",
+                "props": {},
+                "children": [
+                  {
+                    "type": "span",
+                    "props": {
+                      "role": "img",
+                      "aria-label": "kudos"
+                    },
+                    "children": [
+                      "🙏"
+                    ]
+                  },
+                  " to ",
+                  {
+                    "type": "a",
+                    "props": {
+                      "href": "https://twitter.com/alexasferle",
+                      "title": "Alexa",
+                      "target": "_blank",
+                      "rel": "noopener noreferrer"
+                    },
+                    "children": [
+                      "Alexa"
+                    ]
+                  },
+                  ", ",
+                  {
+                    "type": "a",
+                    "props": {
+                      "href": "https://chezcami.com",
+                      "title": "Chez Cami",
+                      "target": "_blank",
+                      "rel": "noopener noreferrer"
+                    },
+                    "children": [
+                      "Cami"
+                    ]
+                  },
+                  ", ",
+                  {
+                    "type": "a",
+                    "props": {
+                      "href": "http://freelancelot.ro/",
+                      "title": "Vlad",
+                      "target": "_blank",
+                      "rel": "noopener noreferrer"
+                    },
+                    "children": [
+                      "Vlad"
+                    ]
+                  },
+                  ", ",
+                  {
+                    "type": "a",
+                    "props": {
+                      "href": "https://twitter.com/adelasabou",
+                      "title": "Saboutage",
+                      "target": "_blank",
+                      "rel": "noopener noreferrer"
+                    },
+                    "children": [
+                      "Adela"
+                    ]
+                  },
+                  " & ",
+                  {
+                    "type": "a",
+                    "props": {
+                      "href": "http://www.dora.io/client/",
+                      "title": "Dora Szabo"
+                    },
+                    "children": [
+                      "Dora"
+                    ]
+                  },
+                  " for testing this."
+                ]
+              }
+            ]
+          },
+          {
+            "type": "div",
+            "props": {
+              "className": "c-about-questions"
+            },
+            "children": [
+              {
+                "type": "h2",
+                "props": {},
+                "children": [
+                  "In case you were wondering..."
+                ]
+              },
+              {
+                "type": "ul",
+                "props": {
+                  "className": "c-about-questions-list"
+                },
+                "children": [
+                  {
+                    "type": "li",
+                    "props": {},
+                    "children": [
+                      {
+                        "type": "p",
+                        "props": {
+                          "className": "c-about-questions-list--q"
+                        },
+                        "children": [
+                          "How do I replace my Spotify playlist cover art?"
+                        ]
+                      },
+                      {
+                        "type": "p",
+                        "props": {
+                          "className": "c-about-questions-list--a"
+                        },
+                        "children": [
+                          {
+                            "type": "strong",
+                            "props": {},
+                            "children": [
+                              "Spoiler Alert: this only works in the Spotify desktop player."
+                            ]
+                          },
+                          {
+                            "type": "br",
+                            "props": {},
+                            "children": []
+                          },
+                          {
+                            "type": "br",
+                            "props": {},
+                            "children": []
+                          },
+                          "Open one of your playlists, hover your mouse over the boring cover art and clickety click it. ",
+                          {
+                            "type": "br",
+                            "props": {},
+                            "children": []
+                          },
+                          {
+                            "type": "br",
+                            "props": {},
+                            "children": []
+                          },
+                          "You'll see the \"Edit Playlist\" screen. Clickety click again on the \"Choose Image\" button and select the new image."
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "li",
+                    "props": {},
+                    "children": [
+                      {
+                        "type": "p",
+                        "props": {
+                          "className": "c-about-questions-list--q"
+                        },
+                        "children": [
+                          "Does this only work with Spotify?"
+                        ]
+                      },
+                      {
+                        "type": "p",
+                        "props": {
+                          "className": "c-about-questions-list--a"
+                        },
+                        "children": [
+                          "Of course not. You can also change your playlist cover art on Apple Music, Soundcloud and pretty much every other music streaming service out there."
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "li",
+                    "props": {},
+                    "children": [
+                      {
+                        "type": "p",
+                        "props": {
+                          "className": "c-about-questions-list--q"
+                        },
+                        "children": [
+                          "How did you built this?"
+                        ]
+                      },
+                      {
+                        "type": "p",
+                        "props": {
+                          "className": "c-about-questions-list--a"
+                        },
+                        "children": [
+                          "This thing right here is a ",
+                          {
+                            "type": "a",
+                            "props": {
+                              "href": "https://reactjs.org/",
+                              "title": "React",
+                              "target": "_blank",
+                              "rel": "noopener noreferrer"
+                            },
+                            "children": [
+                              "React"
+                            ]
+                          },
+                          " app, most of the images are from ",
+                          {
+                            "type": "a",
+                            "props": {
+                              "href": "http://pngimg.com/",
+                              "title": "pngimg",
+                              "target": "_blank",
+                              "rel": "noopener noreferrer"
+                            },
+                            "children": [
+                              "pngimg"
+                            ]
+                          },
+                          " or ",
+                          {
+                            "type": "a",
+                            "props": {
+                              "href": "https://unsplash.com/",
+                              "title": "Unsplash",
+                              "target": "_blank",
+                              "rel": "noopener noreferrer"
+                            },
+                            "children": [
+                              "Unsplash"
+                            ]
+                          },
+                          " (cheers!). Maybe there'll be a Medium post about this. At some point. If anybody's interested in how a designer learned React and built this in a week."
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "li",
+                    "props": {},
+                    "children": [
+                      {
+                        "type": "p",
+                        "props": {
+                          "className": "c-about-questions-list--q"
+                        },
+                        "children": [
+                          "Should designers code?"
+                        ]
+                      },
+                      {
+                        "type": "p",
+                        "props": {
+                          "className": "c-about-questions-list--a"
+                        },
+                        "children": [
+                          "Well..."
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "div",
+            "props": {
+              "className": "c-about-roadmap"
+            },
+            "children": [
+              {
+                "type": "h2",
+                "props": {},
+                "children": [
+                  "Roadmap"
+                ]
+              },
+              {
+                "type": "p",
+                "props": {
+                  "className": "c-about-roadmap--description"
+                },
+                "children": [
+                  "This is the first version of Replace Cover. Designed, built and shipped in about a week, working weekends and nights. Because of the overwhelmingly positive response so far, I'm working on a few updates:"
+                ]
+              },
+              {
+                "type": "ul",
+                "props": {
+                  "className": "c-about-roadmap-list"
+                },
+                "children": [
+                  {
+                    "type": "li",
+                    "props": {},
+                    "children": [
+                      {
+                        "type": "p",
+                        "props": {
+                          "className": "c-about-roadmap-list--feature"
+                        },
+                        "children": [
+                          "Integration of Unsplash"
+                        ]
+                      },
+                      {
+                        "type": "p",
+                        "props": {
+                          "className": "c-about-roadmap-list--featureDescription"
+                        },
+                        "children": [
+                          "Integration of ",
+                          {
+                            "type": "a",
+                            "props": {
+                              "href": "https://unsplash.com",
+                              "title": "Unsplash is awesome"
+                            },
+                            "children": [
+                              "Unsplash"
+                            ]
+                          },
+                          " and their 470k+ library of free amazing photos. You'll be able to select one, tweak it a little bit and use it as your playlist cover background.",
+                          {
+                            "type": "span",
+                            "props": {
+                              "className": "c-about-roadmap-list-status"
+                            },
+                            "children": [
+                              "Status:",
+                              {
+                                "type": "strong",
+                                "props": {
+                                  "className": "c-about-roadmap-list--featureStatus indesign"
+                                },
+                                "children": [
+                                  "In Design"
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "li",
+                    "props": {},
+                    "children": [
+                      {
+                        "type": "p",
+                        "props": {
+                          "className": "c-about-roadmap-list--feature indesign"
+                        },
+                        "children": [
+                          "Control over the vertical position of the playlist title"
+                        ]
+                      },
+                      {
+                        "type": "p",
+                        "props": {
+                          "className": "c-about-roadmap-list--featureDescription"
+                        },
+                        "children": [
+                          "Moving the playlist title up & down by dragging it, rather than adding line breaks before and after the text.",
+                          {
+                            "type": "span",
+                            "props": {
+                              "className": "c-about-roadmap-list-status"
+                            },
+                            "children": [
+                              "Status:",
+                              {
+                                "type": "strong",
+                                "props": {
+                                  "className": "c-about-roadmap-list--featureStatus wip"
+                                },
+                                "children": [
+                                  "In Development"
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "li",
+                    "props": {},
+                    "children": [
+                      {
+                        "type": "p",
+                        "props": {
+                          "className": "c-about-roadmap-list--feature"
+                        },
+                        "children": [
+                          "Connecting your Spotify account"
+                        ]
+                      },
+                      {
+                        "type": "p",
+                        "props": {
+                          "className": "c-about-roadmap-list--featureDescription"
+                        },
+                        "children": [
+                          "Ability to log in with your Spotify account, select one of your awesome playlists, design the cover and then save it directly to Spotify, without having to leave Replace Cover.",
+                          {
+                            "type": "span",
+                            "props": {
+                              "className": "c-about-roadmap-list-status"
+                            },
+                            "children": [
+                              "Status:",
+                              {
+                                "type": "strong",
+                                "props": {
+                                  "className": "c-about-roadmap-list--featureStatus indesign"
+                                },
+                                "children": [
+                                  "In Design"
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "li",
+                    "props": {},
+                    "children": [
+                      {
+                        "type": "p",
+                        "props": {
+                          "className": "c-about-roadmap-list--feature"
+                        },
+                        "children": [
+                          "What else?"
+                        ]
+                      },
+                      {
+                        "type": "p",
+                        "props": {
+                          "className": "c-about-roadmap-list--featureDescription"
+                        },
+                        "children": [
+                          "Let me know what else you'd like to see Replace Cover do either on Twitter ",
+                          {
+                            "type": "a",
+                            "props": {
+                              "href": "https://twitter.com/raduceuca",
+                              "title": "Radu on Twitter"
+                            },
+                            "children": [
+                              "@raduceuca"
+                            ]
+                          },
+                          " or via email ",
+                          {
+                            "type": "a",
+                            "props": {
+                              "href": "mailto:raduceuca@gmail.com?subject=Replace Cover Ideas",
+                              "title": "Email Radu"
+                            },
+                            "children": [
+                              "raduceuca@gmail.com"
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "pageviewChild",
+        "props": {},
+        "children": []
+      }
+    ]
+  },
+  "changelog": {
+    "type": "div",
+    "props": {
+      "className": "container mx-auto mb-32"
+    },
+    "children": [
+      {
+        "type": "div",
+        "props": {
+          "className": "flex flex-col items-center"
+        },
+        "children": [
+          {
+            "type": "div",
+            "props": {
+              "className": "max-w-lg mt-6 md:mt-24 px-4 md:px-0"
+            },
+            "children": [
+              {
+                "type": "a",
+                "props": {
+                  "href": "/"
+                },
+                "children": [
+                  {
+                    "type": "span",
+                    "props": {
+                      "role": "img",
+                      "aria-label": "back"
+                    },
+                    "children": [
+                      "👈"
+                    ]
+                  },
+                  " go back"
+                ]
+              },
+              {
+                "type": "h1",
+                "props": {
+                  "className": "text-3xl md:text-6xl font-semibold text-yellow-400 mb-2 md:mb-12 mt-12"
+                },
+                "children": [
+                  "Changelog"
+                ]
+              },
+              {
+                "type": "p",
+                "props": {
+                  "className": "text-1xl font-light leading-normal text-gray-100"
+                },
+                "children": [
+                  "After a long wait, I'm finally spending some time on Replace Cover. Here's what's new:"
+                ]
+              },
+              {
+                "type": "div",
+                "props": {
+                  "className": "space-y-8 mt-8"
+                },
+                "children": [
+                  {
+                    "type": "ChangelogEntry",
+                    "props": {
+                      "date": "Aug 15 2020",
+                      "title": "1.0.0 — It's baaaaack"
+                    },
+                    "children": [
+                      {
+                        "type": "ul",
+                        "props": {
+                          "className": "list-disc pl-8 ml-0 space-y-2 text-lg font-light mt-3 leading-normal text-gray-100"
+                        },
+                        "children": [
+                          {
+                            "type": "li",
+                            "props": {},
+                            "children": [
+                              "Back on",
+                              " ",
+                              {
+                                "type": "a",
+                                "props": {
+                                  "href": "https://github.com/facebook/create-react-app",
+                                  "title": "Github page of Create React App",
+                                  "alt": "Link to Create React App",
+                                  "rel": "noopener noreferrer",
+                                  "target": "_blank",
+                                  "className": "font-normal underline text-yellow-400"
+                                },
+                                "children": [
+                                  "Create React App"
+                                ]
+                              },
+                              ". Ejecting wasn't worth the trouble."
+                            ]
+                          },
+                          {
+                            "type": "li",
+                            "props": {},
+                            "children": [
+                              "Added lazy loading for images"
+                            ]
+                          },
+                          {
+                            "type": "li",
+                            "props": {},
+                            "children": [
+                              "Improved accessibility for all interactive elements"
+                            ]
+                          },
+                          {
+                            "type": "li",
+                            "props": {},
+                            "children": [
+                              "Moved entire codebase to Functional Components and React Hooks"
+                            ]
+                          },
+                          {
+                            "type": "li",
+                            "props": {},
+                            "children": [
+                              "Added PropTypes"
+                            ]
+                          },
+                          {
+                            "type": "li",
+                            "props": {},
+                            "children": [
+                              "Integrated",
+                              " ",
+                              {
+                                "type": "a",
+                                "props": {
+                                  "href": "https://tailwindcss.com/",
+                                  "title": "Tailwindcss homepage",
+                                  "alt": "Link to Tailwindcss homepage",
+                                  "rel": "noopener noreferrer",
+                                  "target": "_blank",
+                                  "className": "font-normal underline text-yellow-400"
+                                },
+                                "children": [
+                                  "tailwindcss"
+                                ]
+                              },
+                              " ",
+                              "and will begin slooowly refactoring the styling to make use of it"
+                            ]
+                          },
+                          {
+                            "type": "li",
+                            "props": {},
+                            "children": [
+                              "Started setting up",
+                              " ",
+                              {
+                                "type": "a",
+                                "props": {
+                                  "href": "https://graphcms.com/",
+                                  "title": "GraphCMS homepage",
+                                  "alt": "Link to GraphCMS homepage",
+                                  "rel": "noopener noreferrer",
+                                  "target": "_blank",
+                                  "className": "font-normal underline text-yellow-400"
+                                },
+                                "children": [
+                                  "GraphCMS"
+                                ]
+                              },
+                              ". I plan on using it to maintain the Themes and Things used on RC as well as the random playlist titles"
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "ChangelogEntry",
+                    "props": {
+                      "date": "March 12 2018",
+                      "title": "0.9.999 — A loooong time ago, in a galaxy far far away, a Spotify playlist cover design app was born"
+                    },
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "pageviewChild",
+        "props": {},
+        "children": []
+      }
+    ]
+  }
+}

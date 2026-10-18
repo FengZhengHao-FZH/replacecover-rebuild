@@ -1,0 +1,13 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# The shipped app was a client-routed SPA with real paths for /about and /changelog,
+# so deep links must resolve to the bundle rather than 404.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
