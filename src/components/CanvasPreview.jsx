@@ -1,9 +1,15 @@
-import { useRef } from 'react';
+import { useRef, useLayoutEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import TextareaAutosize from 'react-textarea-autosize';
 import { ProgressiveImage } from '../lib/ProgressiveImage.jsx';
 import { copyChanged } from '../store/actions.js';
 import { isMobile } from '../lib/device.js';
+
+// Maps a text-alignment value to the pill's cross-axis (horizontal) align-self inside
+// the flex-column container. `left` has no dedicated .c-canvasPreview--pill.left rule in
+// the stylesheet, so it falls back to flex-start; spelling it out here keeps the inline
+// value identical to what the editor renders from the class alone.
+const PILL_ALIGN_SELF = { left: 'flex-start', center: 'center', right: 'flex-end' };
 
 // main.js:1:9130-11290 (`w`). The raster target is #canvasPreview, so every inline
 // style here is what actually lands in the downloaded JPEG.
@@ -23,6 +29,33 @@ export function CanvasPreview() {
     : ''.concat(textSize.size, 'px');
   const textareaRef = useRef(null);
   const authorRef = useRef(null);
+  const titleEditRef = useRef(null);
+  const titleShotRef = useRef(null);
+
+  // The pill is a flex sibling of the two mutually-exclusive title slots (`.c-canvasPreview--title`
+  // holds the <textarea> in edit mode; `.c-canvasPreview--title-screenshot` holds the read-only
+  // <p> that html2canvas rasterises). `justify-content:space-between` pins the pill relative to the
+  // height of whichever slot is visible, so the download drifts vertically whenever the <p>'s natural
+  // height diverges from the autosized <textarea>'s height (UA padding + per-line box rounding that
+  // compounds on multi-line / large-font / wrapped titles). Mirror the edit slot's measured height
+  // onto the export slot so the flex column is byte-identical in both modes and the pill lands in
+  // exactly the same place. Re-measured after webfont metrics settle and on viewport resize.
+  useLayoutEffect(() => {
+    const editSlot = titleEditRef.current;
+    const shotSlot = titleShotRef.current;
+    if (!editSlot || !shotSlot) return undefined;
+    const sync = () => {
+      const h = editSlot.offsetHeight;
+      // Only trust a real measurement; jsdom / pre-layout report 0.
+      if (h) shotSlot.style.height = ''.concat(h, 'px');
+    };
+    sync();
+    if (document.fonts && document.fonts.ready && typeof document.fonts.ready.then === 'function') {
+      document.fonts.ready.then(sync).catch(() => {});
+    }
+    window.addEventListener('resize', sync);
+    return () => window.removeEventListener('resize', sync);
+  }, [copy.playlistTitle, textSize.size, textAlignment.alignment]);
 
   return (
     <div className="c-canvasPreview">
@@ -70,7 +103,7 @@ export function CanvasPreview() {
             }}
             spellCheck="false"
           />
-          <div className="c-canvasPreview--title">
+          <div className="c-canvasPreview--title" ref={titleEditRef}>
             <TextareaAutosize
               autoFocus
               cacheMeasurements
@@ -95,13 +128,31 @@ export function CanvasPreview() {
               minRows={1}
             />
           </div>
-          <div className="c-canvasPreview--title-screenshot">
+          {/* The download rasterises this read-only node, not the textarea above
+              (html2canvas cannot paint a <textarea). During rasterise, body.hide-scrollbar
+              swaps the two via the stylesheet, so this node MUST mirror the textarea
+              exactly - otherwise the JPEG diverges from the editor. The overrides are
+              inlined here rather than left to original.css so they can never be lost to
+              stylesheet ordering, and they do not touch `display` (the CSS class swap
+              still owns that). */}
+          <div className="c-canvasPreview--title-screenshot" ref={titleShotRef} style={{ padding: '16px 0' }}>
             <p
               className="c-canvasPreview--textarea textareaReset"
               style={{
                 color: theme.textColor,
                 fontSize: titleFontSize,
                 textAlign: textAlignment.alignment,
+                // 1. pre-wrap keeps the user's newlines: a <p> with the default
+                //    `white-space: normal` collapses \\n into spaces, so a multi-line
+                //    title landed on one line in the download.
+                // 2. overflow:visible stops .textareaReset's `overflow: auto` from
+                //    clipping ascenders/descenders under `line-height: 1` (missing letters).
+                // 3. break-word soft-wraps long words at the box width, like a textarea.
+                //    With newlines intact, `text-align` now applies to every visual line,
+                //    so left / centre / right match the editor instead of looking centred.
+                whiteSpace: 'pre-wrap',
+                overflowWrap: 'break-word',
+                overflow: 'visible',
               }}
             >
               {copy.playlistTitle}
@@ -109,7 +160,13 @@ export function CanvasPreview() {
           </div>
           <span
             className={'c-canvasPreview--pill '.concat(textAlignment.alignment)}
-            style={{ background: theme.contrastColor }}
+            style={{
+              background: theme.contrastColor,
+              // Mirror the .center/.right align-self classes as an inline value so the
+              // pill's horizontal position is explicit (and survives html2canvas cloning),
+              // keeping left/centre/right identical to the editor preview.
+              alignSelf: PILL_ALIGN_SELF[textAlignment.alignment] || 'flex-start',
+            }}
           />
         </div>
       </div>

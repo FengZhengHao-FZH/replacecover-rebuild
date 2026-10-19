@@ -239,4 +239,46 @@ describe('canvas text layer', () => {
     expect(view.container.querySelector('.c-canvasPreview--title-screenshot p').style.textAlign).toBe('right');
     expect(view.container.querySelector('.c-canvasPreview--pill').className).toBe('c-canvasPreview--pill right');
   });
+
+  // The download rasterises the read-only screenshot paragraph, not the textarea
+  // (html2canvas cannot paint a <textarea>). These inline overrides are what keep the
+  // exported JPEG faithful: pre-wrap preserves the user's newlines, overflow:visible
+  // stops the line-height:1 box from clipping ascenders/descenders, and the pill's
+  // explicit align-self keeps left/centre/right identical to the editor.
+  it('screenshot paragraph mirrors the textarea (newlines, no clipping) and pill aligns', () => {
+    const store = createStore(rootReducer);
+    const view = mount(store);
+    const paragraph = view.container.querySelector('.c-canvasPreview--title-screenshot p');
+    expect(paragraph.style.whiteSpace).toBe('pre-wrap');
+    expect(paragraph.style.overflow).toBe('visible');
+    expect(view.container.querySelector('.c-canvasPreview--title-screenshot').style.padding).toBe('16px 0px');
+    expect(view.container.querySelector('.c-canvasPreview--pill').style.alignSelf).toBe('center');
+    act(() => store.dispatch({ type: 'TEXT_ALIGNMENT_CHANGED', payload: { alignment: 'left' } }));
+    expect(view.container.querySelector('.c-canvasPreview--pill').style.alignSelf).toBe('flex-start');
+  });
+
+  // The pill is a flex sibling of the two title slots, so its vertical position is pinned to
+  // whichever slot is visible. Download drifts the pill whenever the read-only screenshot slot's
+  // natural height differs from the autosized edit slot; the layout effect mirrors the edit slot's
+  // measured height onto `.c-canvasPreview--title-screenshot` so the flex column stays identical.
+  it('mirrors the edit title slot height onto the export slot so the pill cannot drift', () => {
+    const proto = 'offsetHeight' in HTMLElement.prototype ? HTMLElement.prototype : Element.prototype;
+    const original = Object.getOwnPropertyDescriptor(proto, 'offsetHeight');
+    Object.defineProperty(proto, 'offsetHeight', { configurable: true, get: () => 244 });
+    let view;
+    try {
+      const store = createStore(rootReducer);
+      view = mount(store);
+    } finally {
+      if (original) Object.defineProperty(proto, 'offsetHeight', original);
+      else delete proto.offsetHeight;
+    }
+    expect(view.container.querySelector('.c-canvasPreview--title-screenshot').style.height).toBe('244px');
+  });
+
+  it('leaves the export slot untouched until a real height is measured (jsdom reports 0)', () => {
+    const store = createStore(rootReducer);
+    const view = mount(store);
+    expect(view.container.querySelector('.c-canvasPreview--title-screenshot').style.height).toBe('');
+  });
 });

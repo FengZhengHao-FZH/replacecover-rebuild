@@ -61,8 +61,8 @@ Everything the shipped site did, on the same 600×600 canvas:
 - **Shuffle** — one click randomises copy, theme and sticker together.
 - **Text size / alignment / author + title editing** — autosizing textarea, alignment decides
   the pill's `align-self`.
-- **PNG export** — `html2canvas` rasterises `#canvasPreview` and downloads it; no server, no
-  account, no network calls at runtime.
+- **JPEG export** — `html2canvas` rasterises `#canvasPreview` and downloads it as a `.jpeg`;
+  no server, no account, no network calls at runtime.
 - **`/about`, `/changelog`** — real paths, client-routed, deep-linkable.
 
 ## Stack

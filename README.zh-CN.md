@@ -50,7 +50,7 @@ npm run build   # 162 个模块，JS 约 428 kB（gzip 约 121 kB），CSS 约 3
   `findDOMNode`，因此 `src/lib/` 用 `IntersectionObserver` 重实现了同样的可见区行为。
 - **洗牌（Shuffle）** —— 一次点击同时随机文案、主题和贴纸。
 - **字号 / 对齐 / 作者名与标题编辑** —— 自适应高度的 textarea，文字对齐方式决定胶囊条的 `align-self`。
-- **导出 PNG** —— 用 `html2canvas` 把 `#canvasPreview` 栅格化后下载；不需要服务端、不需要账号、运行时没有任何网络请求。
+- **导出 JPEG** —— 用 `html2canvas` 把 `#canvasPreview` 栅格化后以 `.jpeg` 下载；不需要服务端、不需要账号、运行时没有任何网络请求。
 - **`/about`、`/changelog`** —— 真实路径、客户端路由、可以直接深链访问。
 
 ## 技术栈
