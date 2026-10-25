@@ -11,23 +11,6 @@ import { isMobile } from '../lib/device.js';
 // value identical to what the editor renders from the class alone.
 const PILL_ALIGN_SELF = { left: 'flex-start', center: 'center', right: 'flex-end' };
 
-// The shipped cascade pins the title to `line-height: 1` on both `.c-canvasPreview--textarea`
-// and `.c-canvasPreview--title-screenshot`, so each line box is exactly `fontSize` tall. A CDP
-// probe of the self-hosted Poppins measured its natural line box at 90px for 60px text = 1.5em,
-// so at `line-height: 1` the glyph content overflows the box by ~15px top and bottom. The editor
-// <textarea> paints that overflow anyway, but html2canvas clips the read-only <p> it rasterises
-// to the element box - so the JPEG loses the lower half of the glyphs (`g`/`y`/`p`/`j` tails cut,
-// a capital `Y` reads as `v`). The archived site never showed this because its Typekit font was
-// unavailable and it rasterised an Arial fallback whose metrics fit inside 1em; the rebuild ships
-// Poppins, so the clip is rebuild-only. `overflow: visible` does NOT help (verified) - the lever
-// is the line box. Both title nodes get one shared unitless `lineHeight` set to the font's own
-// natural pitch (1.5 = 90px/60px) so the box fully contains the descent. 1.3 was tried first and
-// still clipped deep descenders, because it is below Poppins' 1.5em content box. The value is on
-// BOTH the editor <textarea> and the export <p> so the preview and the JPEG share one line-height/
-// height base (the mirror effect copies the edit slot's measured height onto the export slot, which
-// only stays identical while both use it), and it is unitless so it tracks the text-size scaling.
-const TITLE_LINE_HEIGHT = 1.5;
-
 // main.js:1:9130-11290 (`w`). The raster target is #canvasPreview, so every inline
 // style here is what actually lands in the downloaded JPEG.
 export function CanvasPreview() {
@@ -145,9 +128,6 @@ export function CanvasPreview() {
               style={{
                 color: theme.textColor,
                 fontSize: titleFontSize,
-                // Shared base with the export paragraph so the preview and the JPEG rasterise
-                // the same line box and neither clips the title's lower half (TITLE_LINE_HEIGHT).
-                lineHeight: TITLE_LINE_HEIGHT,
                 textAlign: textAlignment.alignment,
               }}
               spellCheck="false"
@@ -172,19 +152,14 @@ export function CanvasPreview() {
                 // 1. pre-wrap keeps the user's newlines: a <p> with the default
                 //    `white-space: normal` collapses \\n into spaces, so a multi-line
                 //    title landed on one line in the download.
-                // 2. overflow:visible stops .textareaReset's `overflow: auto` from clipping the
-                //    box; the bottom of the glyphs is what TITLE_LINE_HEIGHT below rescues, lifting
-                //    the export box off the shipped `line-height: 1` that cut descenders.
+                // 2. overflow:visible stops .textareaReset's `overflow: auto` from
+                //    clipping ascenders/descenders under `line-height: 1` (missing letters).
                 // 3. break-word soft-wraps long words at the box width, like a textarea.
                 //    With newlines intact, `text-align` now applies to every visual line,
                 //    so left / centre / right match the editor instead of looking centred.
                 whiteSpace: 'pre-wrap',
                 overflowWrap: 'break-word',
                 overflow: 'visible',
-                // Must equal the textarea above: the anti-clip is the taller line box, and the
-                // shared value keeps the mirrored slot height consistent with what html2canvas
-                // actually paints.
-                lineHeight: TITLE_LINE_HEIGHT,
               }}
             >
               {copy.playlistTitle}
