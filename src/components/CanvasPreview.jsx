@@ -26,7 +26,7 @@ const PILL_ALIGN_SELF = { left: 'flex-start', center: 'center', right: 'flex-end
 // BOTH the editor <textarea> and the export <p> so the preview and the JPEG share one line-height/
 // height base (the mirror effect copies the edit slot's measured height onto the export slot, which
 // only stays identical while both use it), and it is unitless so it tracks the text-size scaling.
-const TITLE_LINE_HEIGHT = 1.5;
+const TITLE_LINE_HEIGHT = 1.15;
 
 // main.js:1:9130-11290 (`w`). The raster target is #canvasPreview, so every inline
 // style here is what actually lands in the downloaded JPEG.
